@@ -22,14 +22,8 @@ const GuidedAffirmationsGallery = ({
           data={previews}
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item }) => (
-            <Link
-              href={{
-                pathname: "/affirmations",
-                params: { id: item.id.toString() },
-              }}
-              asChild
-            >
+          renderItem={({ item, index }) => (
+            <Link href={`/affirmations/${item.id}`} asChild>
               <Pressable>
                 <View className="h-36 w-32 rounded-md mr-4">
                   <Image
@@ -37,6 +31,7 @@ const GuidedAffirmationsGallery = ({
                     resizeMode="cover"
                     className="w-full h-full"
                   />
+                  <Text>ProductGallery</Text>
                 </View>
               </Pressable>
             </Link>
